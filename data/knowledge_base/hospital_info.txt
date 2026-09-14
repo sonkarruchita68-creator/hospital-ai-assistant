@@ -1,0 +1,3 @@
+ABC Hospital provides OPD, Emergency, Cardiology, Neurology and Pharmacy services.
+Hospital timings: 8 AM to 8 PM.
+Emergency service available 24x7.

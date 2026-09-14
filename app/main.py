@@ -2,8 +2,11 @@ from fastapi import FastAPI
 from app.db.base import Base
 from app.db.session import engine
 from app.routers import departments,auth,doctor,patient,appointment,upload,chat,pdf_reader
+from app.core.logging import logger
 
 app = FastAPI()
+
+logger.info("Hospital AI Assistant Started")
 
 Base.metadata.create_all(bind=engine)
 
