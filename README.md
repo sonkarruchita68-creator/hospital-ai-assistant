@@ -55,5 +55,5 @@ app/
 ## Author
 
 Ruchita Sonkar
-BCA Student (MAKAUT)
+
 
