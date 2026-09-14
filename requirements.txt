@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+sqlalchemy
+python-jose
+passlib
+bcrypt
+python-multipart
+python-dotenv
+groq
+sentence-transformers
+pypdf
+python-docx
