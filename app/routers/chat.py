@@ -10,6 +10,23 @@ router = APIRouter()
 
 @router.get("/chat")
 def chat(question: str):
+    question_lower = question.lower()
+
+    emergency_keywords = [
+        "heart attack",
+        "suicide",
+        "stroke",
+        "unconscious",
+        "severe bleeding",
+        "emergency"
+    ]
+
+    if any(keyword in question_lower for keyword in emergency_keywords):
+        return {
+            "answer": "This may be a medical emergency. Please contact emergency medical services or visit the nearest hospital immediately.",
+            "sources": []
+        }
+
     text = extract_pdf_text("app/uploads/sample.pdf")
 
     chunks = split_text(text)
@@ -23,6 +40,6 @@ def chat(question: str):
     answer = ask_groq(question, context)
 
     return {
-        "question": question,
-        "answer": answer
+        "answer": answer,
+        "sources": ["sample.pdf"]
     }

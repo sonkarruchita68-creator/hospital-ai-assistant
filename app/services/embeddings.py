@@ -1,10 +1,7 @@
-from sentence_transformers import SentenceTransformer
-
-
-model = SentenceTransformer("all-MiniLM-L6-v2")
-
-
 def create_embeddings(chunks):
-    embeddings = model.encode(chunks)
+    embeddings = []
 
-    return embeddings.tolist()
+    for chunk in chunks:
+        embeddings.append([float(len(chunk))])
+
+    return embeddings

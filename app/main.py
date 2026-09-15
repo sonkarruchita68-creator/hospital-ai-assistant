@@ -3,6 +3,7 @@ from app.db.base import Base
 from app.db.session import engine
 from app.routers import departments,auth,doctor,patient,appointment,upload,chat,pdf_reader
 from app.core.logging import logger
+from app.websocket.chat_handler import router as ws_router
 
 app = FastAPI()
 
@@ -50,6 +51,8 @@ app.include_router(
     prefix="/pdf",
     tags=["PDF Reader"]
 )
+app.include_router(ws_router)
+
 @app.get("/")
 def root():
     return {"message": "Hospital AI Assistant is running"}
